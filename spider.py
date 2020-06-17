@@ -44,7 +44,7 @@ class TongChengSpider(object):
         return _response
 
     def _init_data(self):
-        """处理网页加密字符串，将 woff 格式转化为 xml 格式，并找出对应关系"""
+        """处理网页加密字符串，将 tff 格式转化为 xml 格式，并找出对应关系"""
 
         self.get_font_data()
         self.parse_font_data()
@@ -57,9 +57,9 @@ class TongChengSpider(object):
             "data:application/font-ttf;charset=utf-8;base64,(.*?)'\) format",
             response)[0]
         _data = base64.decodebytes(_base64_code.encode())
-        with open('font_data.woff', 'wb') as f:
+        with open('font_data.ttf', 'wb') as f:
             f.write(_data)
-        font = TTFont('font_data.woff')
+        font = TTFont('font_data.ttf')
         font.saveXML('font_data.xml')
 
     def parse_font_data(self):
@@ -104,12 +104,12 @@ class TongChengSpider(object):
         """删除无用文件"""
 
         os.remove("font_data.xml")
-        os.remove("font_data.woff")
+        os.remove("font_data.ttf")
 
     def run(self):
         self._init_data()
         self.get_real_resp()
-        self.del_()
+        # self.del_()
 
 
 if __name__ == '__main__':
