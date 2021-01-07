@@ -1,7 +1,8 @@
-certifi==2020.4.5.2
+-i https://pypi.tuna.tsinghua.edu.cn/simple/
+certifi==2020.12.5
 chardet==3.0.4
 fonttools==4.12.0
-idna==2.9
-lxml==4.5.1
+idna==2.10
+lxml==4.6.2
 requests==2.23.0
-urllib3==1.25.9
+urllib3==1.25.11
